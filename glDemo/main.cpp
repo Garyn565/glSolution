@@ -57,7 +57,7 @@ int main() {
 
 	// Initialise scene - geometry and shaders etc
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f); // setup background colour to be black
-
+		gluOrtho2D(-1.0, 1.0, -1.0, 1.0);
 
 	//
 	// 2. Main loop
@@ -89,7 +89,21 @@ void renderScene()
 	// Clear the rendering window
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+
 	// Render objects here...
+	glBegin(GL_TRIANGLES);
+		glVertex2f(-0.5f, -0.5f); //bottom left
+		glVertex2f(0.5f, 0.5f); //top (middle)
+		glVertex2f(0.5f, -0.5f); //bottom right
+
+
+		//Triangle 2
+		glVertex2f(0.5f, 0.5f);
+		glVertex2f(-0.5f, -0.5f);
+		glVertex2f(-0.5f, 0.5f);
+
+		glEnd();
+
 }
 
 
