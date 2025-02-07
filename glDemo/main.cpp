@@ -8,7 +8,6 @@
 const unsigned int initWidth = 512;
 const unsigned int initHeight = 512;
 
-// Function prototypes
 void renderScene();
 void resizeWindow(GLFWwindow* window, int width, int height);
 void keyboardHandler(GLFWwindow* window, int key, int scancode, int action, int mods);
@@ -92,17 +91,27 @@ void renderScene()
 
 	// Render objects here...
 	glBegin(GL_TRIANGLES);
+		glColor4ub(255, 0, 0, 0); //red
 		glVertex2f(-0.5f, -0.5f); //bottom left
 		glVertex2f(0.5f, 0.5f); //top (middle)
 		glVertex2f(0.5f, -0.5f); //bottom right
 
+		glEnd();
+
+		glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+		glBegin(GL_TRIANGLES);
 
 		//Triangle 2
+		glColor4ub(0, 255, 0, 128); //green
 		glVertex2f(0.5f, 0.5f);
-		glVertex2f(-0.5f, -0.5f);
-		glVertex2f(-0.5f, 0.5f);
+		glVertex2f(-0.5f, -0.8f);
+		glVertex2f(-0.7f, 0.5f);
 
 		glEnd();
+
+        glDisable(GL_BLEND);
 
 }
 
